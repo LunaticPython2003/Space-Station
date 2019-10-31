@@ -1,0 +1,8 @@
+There are currently6astronauts on the issChristina Koch- on board
+Alexander Skvortsov- on board
+Luca Parmitano- on board
+Andrew Morgan- on board
+Oleg Skripochka- on board
+Jessica Meir- on board
+
+ Your current Lat/Long is: [26.1844, 91.7458]
