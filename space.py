@@ -4,26 +4,30 @@ import urllib.request
 import time
 import webbrowser
 import geocoder
+import pyttsx3
 
 # Retrieve the names of all astronauts currently in the space station
 
-print(turtle.__file__)
+engine = pyttsx3.init() ## loads the engine for text to speech
 
 url = "http://api.open-notify.org/astros.json"
 response = urllib.request.urlopen(url)
 result = json.loads(response.read())
 a=open("iss.txt", "w")
-a.write("There are currently"+str(result["number"])+"astronauts on the iss")
+a.write("There are currently "+str(result["number"])+" astronauts on the ISS \n")
 people=result["people"]
 for p in people:
-    a.write(p["name"] + "- on board" + "\n")
+    a.write(p["name"] + "- on board")
 
 g = geocoder.ip("me")
 a.write ("\n Your current Lat/Long is: " + str(g.latlng))
 a.close()
 with open('iss.txt') as f:
     for line in f:
-        print (line.strip())
+        print (line)
+        engine.say(line)
+        engine.runAndWait()
+
 
 screen = turtle.Screen()
 screen.setup(1280, 720)
